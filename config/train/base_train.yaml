@@ -1,0 +1,35 @@
+run_mode: train
+
+# reproducibility
+seed: 0
+
+# Training iteration
+base_lr: 8.48E-05
+search_lr: false
+search_multiplier: 1.0
+lr_scheduler_type: constant_with_decay
+warmup_ratio: 0.05
+warmup_min: 3000
+total_samples: 1.0e+6
+# iterations: ???  # decided during runtime
+
+# regularization
+criterion: cross-entropy
+weight_decay: 1.25E-02
+mixup: 0.3
+
+# log
+num_history: 50
+save_model: true
+
+# wandb
+use_wandb: true
+project: TUAB
+draw_result: true
+watch_model: false
+
+# GPU
+#device: 0  decided during runtime
+ddp: false
+# ddp_size: ???  decided during runtime
+

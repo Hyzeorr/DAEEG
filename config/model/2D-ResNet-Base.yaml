@@ -1,0 +1,14 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.resnet_2d.ResNet2D
+model: ???
+seq_len_2d: ???
+block: ???
+conv_layers: ???
+base_channels: 64
+use_age: fc
+fc_stages: 2
+dropout: 0.4970  # No dropout for the original implementation (applied only to FC layers)
+activation: relu # relu for the original

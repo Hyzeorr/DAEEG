@@ -1,0 +1,25 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.xeegnet.XEEGNet
+model: XEEGNet
+
+in_channels: 20
+n_classes: 3     # abnormal task = 2 (normal vs abnormal)
+seq_length: 4000
+
+# ---- architecture ----
+F1: 8
+D: 2
+F2: 16
+
+kernel_length: 64      # fs=200Hz 기준, 필요시 32~128 sweep
+pool_size_1: 4
+pool_size_2: 8
+
+dropout: 0.25
+use_bn: true
+return_feature: false
+
+minibatch_3090: 64

@@ -1,0 +1,30 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.mamba_1d.Mamba1D
+model: 1D-Mamba
+use_age: fc  # ['fc', 'conv', 'no']
+fc_stages: 2
+dropout: 0.1
+
+# Mamba-specific hyperparameters
+d_model: 256
+n_layers: 4
+d_state: 16
+d_conv: 4
+expand: 2
+
+# Architecture enhancements
+multi_scale_conv: true
+multi_scale_kernels: [3, 5, 7]
+channel_attention: se  # ['se', 'none']
+
+
+# Parameter-efficient tuning hooks
+adapter_hidden: 64      # set >0 to enable bottleneck adapters (e.g., 64)
+lora_rank: 8           # set >0 to enable LoRA residuals (e.g., 4 or 8)
+lora_alpha: 8.0
+lora_dropout: 0.05
+
+minibatch_3090: 32

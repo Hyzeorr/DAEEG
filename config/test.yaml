@@ -1,0 +1,10 @@
+defaults:
+  - data: caueeg-dementia
+  - train: base_test
+  - model: 1D-Mamba
+  - _self_
+
+hydra:
+  run:
+    dir: local/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+

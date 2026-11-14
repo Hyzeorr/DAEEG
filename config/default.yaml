@@ -1,0 +1,11 @@
+defaults:
+  # - data: caueeg-abnormal
+  - data: tuab-abnormal
+  - train: base_train
+  - model: 1D-ResNet-18
+  - optional sweep: optional
+  - _self_
+
+hydra:
+  run:
+    dir: local/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}

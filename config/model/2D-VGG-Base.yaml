@@ -1,0 +1,20 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.vgg_2d.VGG2D
+model: ???
+seq_len_2d: ???
+use_age: conv
+fc_stages: 2
+dropout: 0.5  # original setting (applied only to FC layers)
+batch_norm: true
+activation: gelu  # relu for the original
+# optional multiscale stem (e.g., [1,2,4]); set to [1] to disable
+multiscale: [1]
+# optional multi-head attention pooling instead of adaptive pool
+attn_pool: true
+attn_heads: 4
+# FiLM conditioning on age (applied to conv features)
+film_age: false
+film_hidden: 64

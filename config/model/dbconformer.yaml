@@ -1,0 +1,29 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.dbconformer.DBConformer
+model: DBConformer
+
+in_channels: 20
+out_dims: 3
+seq_length: 4000
+
+emb_size: 40
+tem_depth: 5
+chn_depth: 5
+n_heads: 10
+temporal_kernel: 63
+patch_size: 125
+temporal_radix: 1
+spatial_dim: 16
+dropout: 0.5
+
+branch: all         # all, temporal, spatial
+gate_flag: false
+posemb_flag: true
+chn_atten_flag: true
+trim_last: false
+return_feature: false
+
+minibatch_3090: 64

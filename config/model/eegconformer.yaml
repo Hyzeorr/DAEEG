@@ -1,0 +1,34 @@
+defaults:
+  - base_model
+  - _self_
+
+_target_: models.eegconformer.EEGConformer
+model: EEGConformer
+
+# ---- IO ----
+in_channels: 20
+seq_length: 4000
+n_classes: 3   # abnormal task = 2 (normal vs abnormal)
+
+# ---- CNN stem ----
+stem_out: 32
+temporal_kernel: 64
+spatial_mult: 2
+dropout: 0.25
+use_bn: true
+
+# ---- token / transformer ----
+d_model: 128
+token_stride: 8
+n_heads: 4
+n_layers: 4
+ff_mult: 4
+attn_dropout: 0.1
+ff_dropout: 0.1
+
+# ---- pooling/head ----
+pool: mean            # mean or cls
+return_feature: false
+
+# ---- runtime (your repo style) ----
+minibatch_3090: 64

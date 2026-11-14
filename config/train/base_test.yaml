@@ -1,0 +1,29 @@
+run_mode: test
+
+# reproducibility
+seed: 0
+
+# load Pretrained weight
+load_pretrained: tSNE_dem
+
+# test option
+test_accuracy_repeat: 30
+
+# regularization
+criterion: cross-entropy
+weight_decay: 0.01
+mixup: 0.0
+
+# log
+num_history: 500
+save_model: false
+
+# wandb
+use_wandb: false
+draw_result: true
+watch_model: false
+
+# GPU
+ddp: false
+# device: ???  automatically decided during runtime
+# ddp_size: ???  automatically decided during runtime
